@@ -2,8 +2,8 @@
 	"id": "obsidian-title-case-note-title",
 	"name": "Title Case Note Title",
 	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "This is a plugin that rewrites all new note titles in title case as defined by the MLA.",
+	"minAppVersion": "1.1.15",
+	"description": "This is a plugin that rewrites all renamed note titles in title case as defined by the MLA.",
 	"author": "ChaseLittlepaws",
 	"authorUrl": "https://github.com/ChaseLittlepaws",
 	"isDesktopOnly": true
