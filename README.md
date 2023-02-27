@@ -7,7 +7,7 @@
   title="Plugin Example"
   style="display: block; margin-left: auto; margin-right: auto; max-width: 85%">
   style="display: block; margin-left: auto; margin-right: auto; width: 85%">
-<p>
+</p>
 
 <h2 align="center">General</h2>
 
@@ -22,8 +22,8 @@ This is my first functioning plugin, so I'm looking for a lot of feedback!
   src="assets\TCNT Plugin Demo.gif"
   alt="A gif demonstrating the plugin renaming a note title."
   title="Plugin Demonstration"
-  style="display: block; margin-left: auto; margin-right: auto; width: "1000px": max-width: 100%;>
-<p>
+  style="display: block; margin-left: auto; margin-right: auto; width: 1000px; height: auto;>
+</p>
 	
 <h2 align="center">Technical Explaination</h2>
 
@@ -39,7 +39,7 @@ This is Obsidian plugin that listens to the 'rename' event and automatically ren
 		 margin-left: auto;
 		 margin-right: auto;
 		 max-width: 33%;">
-<p>
+</p>
 
 - Adhere more strictly to MLA title case rules.
 	- Incorporate recognition of subtitles.
