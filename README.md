@@ -5,6 +5,7 @@
   src="assets\TCNT Plugin Example.png"
   alt="An example note titles before and after title case."
   title="Plugin Example"
+  style="display: block; margin-left: auto; margin-right: auto; max-width: 85%">
   style="display: block; margin-left: auto; margin-right: auto; width: 85%">
 <p>
 
