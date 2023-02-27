@@ -15,28 +15,28 @@ This is Obsidian plugin that listens to the 'rename' event and automatically ren
 - Adhere more strictly to MLA title case rules.
 	- Incorporate recognition of subtitles.
 		- "Capitalize the first word and the last word of titles and subtitles."
-	- Incorporate recognition of nfinitites.
+	- Incorporate recognition of infinitites.
 		- "Do not capitalize 'to' in infinitives."
 	- Incorporate the recognition of compound terms.
 		- "Capitalize principal words that follow hyphens in compound terms."
-	- Incorporate a dictionary API for reference.
+	- Incorporate a dictionary API for reference concerning compound words.
 		- "Do not capitalize the word that follows a hyphenated prefix if the prefix combined with the word is listed without a hyphen in a dictionary (e.g., 'Anti-tumor,' but 'Anti-Intellectual')"
-- Change the titles of headings or other text elements.
-- Change the title in specific cases only.
+- Extend the renaming capacity
 	- Change the titles of existing notes by specifying particular criteria, e.g. all notes tags #rename.
 	- Change the titles of all notes in a vault.
-	- Change the titles only via command in the command palette or a button in the ribbon bar.
+	- Change the titles of headings or other text elements.
 - Implement a settings menu to toggle or change certain features.
-	- Toggle automatic renaming via a command from the command palette or a toggle in a settings menu.
-	- Toggle renaming of headings or other text elements via a command from the command palette or a toggle in a settings menu
-	- Add other title case rules from different style manuals, e.g. APA title case, changed via a settings menu.
+	- Toggle automatic renaming via a command from the command palette or a toggle in a settings menu..
+	- Toggle automatic renaming of headings or other text elements via a command from the command palette or a toggle in a settings menu.
+	- Add button for extended renaming capacity to the settings menu, e.g. a button to change the titles of all notes in a vault.
+	- Add other title case rules from different style manuals, e.g. APA title case, selected via a settings menu.
 
 
 ## Contact the Developer
 
 ### Feedback
 
-If you encounter a bug, please report it via the ['Issues' tab](https://github.com/ChaseLittlepaws/obsidian-title-case-note-title/issues). For a faster response time, you can also message me on Discord at [Chase#7689](https://discordapp.com/users/551209559557931043).
+If you encounter a bug, please report it via the ['Issues' tab](https://github.com/ChaseLittlepaws/obsidian-title-case-note-title/issues). For a quicker response time, you can also message me on Discord at [Chase#7689](https://discordapp.com/users/551209559557931043).
 
 ### Collaboration
 
