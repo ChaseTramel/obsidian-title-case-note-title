@@ -1,25 +1,25 @@
-import { rename } from 'fs';
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting, TFile } from 'obsidian';
 import { TAbstractFile, FileManager } from "obsidian";
 
 export default class TitleCaseNoteTitle extends Plugin {
 	async onload() {
-		console.log('loading plugin')
-		this.registerEvent(this.app.vault.on('rename', async (file:TFile) => {
-			console.log(this.toTitleCase('a new file has entered the arena'))
-			let newName = await this.toTitleCase(file.name);
-			console.log(newName);
-			this.renameFile(file, newName);
+		console.log('loading Title Case Note Title plugin')
+		this.registerEvent(this.app.vault.on('rename', async (file:TFile) => {  //when a file is renamed
+			// console.log(this.toTitleCase('a file has been renamed'))
+			let newName = await this.toTitleCase(file.name);  //title case the name
+			//console.log(newName);
+			this.renameFile(file, newName);  //rename file with new name
 		  }));
 	}
-	async renameFile (file: TAbstractFile, newName: string) {
+	async renameFile (file: TAbstractFile, newName: string) {  //grab the current path, and ammend it with the new file name
 		const oldPath = file.path;
     	const newPath = oldPath.replace(file.name, newName);
     	await this.app.vault.rename(file, newPath);
 	}
 	async toTitleCase (title: string) {
 		// define what shouldn't be capitalized
-		const articles = ["a",
+		const articles = [
+		"a",
 		"an",
 		"the"];
 		const prepositions = [
@@ -99,7 +99,7 @@ export default class TitleCaseNoteTitle extends Plugin {
 		//capitlize the first letter of each word not included in the list
 		for (let i = 0; i < words.length; i++) {
 		let currentWord = words[i];
-		if (i == 0 || !articles.includes(currentWord) && !prepositions.includes(currentWord) && !conjunctions.includes(currentWord)) {
+		if (i == 0 || ![...articles, ...prepositions, ...conjunctions].includes(currentWord)) {
 			words[i] = currentWord.charAt(0).toUpperCase() + currentWord.slice(1);  // grab the first letter, then capitalize it, then add the rest of the letters uncapitalized
 			}
 		}
@@ -107,7 +107,7 @@ export default class TitleCaseNoteTitle extends Plugin {
 		return words.join(" ");  //join the words back together in a string with a space separating them
 	}
 	async onunload() {
-    	console.log('unloading plugin')
+    	console.log('unloading Title Case Note Tile plugin')
 	}
 }
 
