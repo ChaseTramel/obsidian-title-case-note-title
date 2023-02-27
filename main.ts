@@ -1,5 +1,4 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting, TFile } from 'obsidian';
-import { TAbstractFile, FileManager } from "obsidian";
+import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting,TFile, TAbstractFile, FileManager } from "obsidian";
 
 export default class TitleCaseNoteTitle extends Plugin {
 	async onload() {
