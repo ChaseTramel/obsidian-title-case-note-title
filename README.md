@@ -2,15 +2,21 @@
 
 ## General
 
+![Plugin Example](assets\TCNT Plugin Example.png)
+
 When you rename a note in Obsidian with this plugin loaded, the new name is automatically converted to a close approximation of title case as defined by the *MLA Handbook*, 9th ed. You can find those rules [here](https://titlecaseconverter.com/rules/#MLA). This automatic title case works upon renaming, so this won't effect your old notes unless you manually rename them.
 
 This is my first functioning plugin, so I'm looking for a lot of feedback!
+
+![Plugin Demo](assets\TCNT Plugin Demo.gif)
 
 ## Technical Explaination
 
 This is Obsidian plugin that listens to the 'rename' event and automatically renames the note title to title case. The toTitleCase method converts a string to title case, and the renameFile method renames the file with the new title. Currently, it only recognses articles, prepositions, and conjunctions via an array.
 
 ## Possible Future Features
+
+![MLA Handbook Cover](assets\MLA Handbook Cover.jpg)
 
 - Adhere more strictly to MLA title case rules.
 	- Incorporate recognition of subtitles.
