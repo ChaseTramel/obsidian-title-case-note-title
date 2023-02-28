@@ -1,19 +1,18 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting,TFile, TAbstractFile, FileManager } from "obsidian";
+import { Plugin, TFile, TAbstractFile,} from "obsidian";
 
 export default class TitleCaseNoteTitle extends Plugin {
 	async onload() {
 		console.log('loading Title Case Note Title plugin')
 		this.registerEvent(this.app.vault.on('rename', async (file:TFile) => {  //when a file is renamed
-			// console.log(this.toTitleCase('a file has been renamed'))
-			let newName = await this.toTitleCase(file.name);  //title case the name
-			//console.log(newName);
+			const newName = await this.toTitleCase(file.name);  //title case the name
+			if (newName == file.name) return;  //prevent recurive call
 			this.renameFile(file, newName);  //rename file with new name
-		  }));
+		}));
 	}
 	async renameFile (file: TAbstractFile, newName: string) {  //grab the current path, and ammend it with the new file name
 		const oldPath = file.path;
-    	const newPath = oldPath.replace(file.name, newName);
-    	await this.app.vault.rename(file, newPath);
+		const newPath = oldPath.replace(file.name, newName);
+		await this.app.vault.rename(file, newPath);
 	}
 	async toTitleCase (title: string) {
 		// define what shouldn't be capitalized
@@ -93,7 +92,7 @@ export default class TitleCaseNoteTitle extends Plugin {
 		];
 
 		//split the title into an array of individual words
-		let words = title.toLowerCase().split(" ");
+		const words = title.toLowerCase().split(" ");
 
 		//capitlize the first letter of each word not included in the list
 		for (let i = 0; i < words.length; i++) {
@@ -106,7 +105,7 @@ export default class TitleCaseNoteTitle extends Plugin {
 		return words.join(" ");  //join the words back together in a string with a space separating them
 	}
 	async onunload() {
-    	console.log('unloading Title Case Note Tile plugin')
+		console.log('unloading Title Case Note Tile plugin')
 	}
 }
 
