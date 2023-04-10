@@ -51,7 +51,7 @@ This is Obsidian plugin that listens to the 'rename' event and automatically ren
 	- Incorporate a dictionary API for reference concerning compound words.
 		- "Do not capitalize the word that follows a hyphenated prefix if the prefix combined with the word is listed without a hyphen in a dictionary (e.g., 'Anti-tumor,' but 'Anti-Intellectual')"
 - Extend the renaming capacity
-	- Change the titles of existing notes by specifying particular criteria, e.g. all notes tags #rename.
+	- Change the titles of existing notes by specifying particular criteria, e.g. all notes tagged #rename.
 	- Change the titles of all notes in a vault.
 	- Change the titles of headings or other text elements.
 - Implement a settings menu to toggle or change certain features.
