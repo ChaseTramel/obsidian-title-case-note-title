@@ -1,4 +1,4 @@
-import { Plugin, TFile, TAbstractFile,} from "obsidian";
+import { Plugin, TAbstractFile,} from "obsidian";
 
 export default class TitleCaseNoteTitle extends Plugin {
 	async onload() {
