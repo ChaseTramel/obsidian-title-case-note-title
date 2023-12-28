@@ -3,15 +3,15 @@ import { Plugin, TFile, TAbstractFile,} from "obsidian";
 export default class TitleCaseNoteTitle extends Plugin {
 	async onload() {
 		console.log('loading Title Case Note Title plugin')
-		this.registerEvent(this.app.vault.on('rename', async (file:TFile) => {  //when a file is renamed
-			const newName = await this.toTitleCase(file.name);  //title case the name
-			if (newName == file.name) return;  //prevent recurive call
-			this.renameFile(file, newName);  //rename file with new name
+		this.registerEvent(this.app.vault.on('rename', async (file) => {
+			const newName = await this.toTitleCase(file.name); // No extension here
+			if (newName + ".md" === file.name) return; // Check with extension
+			this.renameFile(file, newName); // newName does not have '.md'
 		}));
 	}
 	async renameFile (file: TAbstractFile, newName: string) {  //grab the current path, and ammend it with the new file name
 		const oldPath = file.path;
-		const newPath = oldPath.replace(file.name, newName);
+		const newPath = oldPath.replace(file.name, newName + ".md");
 		await this.app.vault.rename(file, newPath);
 	}
 	async toTitleCase (title: string) {
@@ -95,16 +95,19 @@ export default class TitleCaseNoteTitle extends Plugin {
 			return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 		}
 
+		const extension = ".md";
+		title = title.replace(extension, ""); // Remove extension
 
 		const splitWords = title.split(" ");
-		const words = splitWords.map((currentWord, i) => {
+		const words = splitWords.map(function (currentWord) {
+			console.log("currentWord: " + currentWord);
 			// Check for acronym or initialism
 			const upperCaseWord = currentWord.toUpperCase();
 			if (upperCaseWord === currentWord) {
 				// Leave acronyms/initialisms as is
 				console.log(currentWord + " is an acronym or initialism");
-				return currentWord;	
-			} else if ([...articles, ...prepositions, ...conjunctions].includes(currentWord)) {  
+				return currentWord;
+			} else if ([...articles, ...prepositions, ...conjunctions].includes(currentWord)) {
 				// check for articles, prepositions, and conjunctions
 				return currentWord.toLowerCase();
 			} else {
