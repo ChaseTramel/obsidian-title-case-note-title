@@ -91,16 +91,26 @@ export default class TitleCaseNoteTitle extends Plugin {
 		"yet",
 		];
 
-		//split the title into an array of individual words
-		const words = title.toLowerCase().split(" ");
-
-		//capitlize the first letter of each word not included in the list
-		for (let i = 0; i < words.length; i++) {
-		let currentWord = words[i];
-		if (i == 0 || ![...articles, ...prepositions, ...conjunctions].includes(currentWord)) {
-			words[i] = currentWord.charAt(0).toUpperCase() + currentWord.slice(1);  // grab the first letter, then capitalize it, then add the rest of the letters uncapitalized
-			}
+		function upperCaseIt (word: string) {
+			return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 		}
+
+
+		const splitWords = title.split(" ");
+		const words = splitWords.map((currentWord, i) => {
+			// Check for acronym or initialism
+			const upperCaseWord = currentWord.toUpperCase();
+			if (upperCaseWord === currentWord) {
+				// Leave acronyms/initialisms as is
+				console.log(currentWord + " is an acronym or initialism");
+				return currentWord;	
+			} else if ([...articles, ...prepositions, ...conjunctions].includes(currentWord)) {  
+				// check for articles, prepositions, and conjunctions
+				return currentWord.toLowerCase();
+			} else {
+				return upperCaseIt(currentWord);
+			}
+		});
 
 		return words.join(" ");  //join the words back together in a string with a space separating them
 	}
