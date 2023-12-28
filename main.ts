@@ -100,12 +100,10 @@ export default class TitleCaseNoteTitle extends Plugin {
 
 		const splitWords = title.split(" ");
 		const words = splitWords.map(function (currentWord) {
-			console.log("currentWord: " + currentWord);
 			// Check for acronym or initialism
 			const upperCaseWord = currentWord.toUpperCase();
 			if (upperCaseWord === currentWord) {
 				// Leave acronyms/initialisms as is
-				console.log(currentWord + " is an acronym or initialism");
 				return currentWord;
 			} else if ([...articles, ...prepositions, ...conjunctions].includes(currentWord)) {
 				// check for articles, prepositions, and conjunctions
