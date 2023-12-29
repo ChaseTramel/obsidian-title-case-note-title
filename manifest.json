@@ -1,7 +1,7 @@
 {
-	"id": "obsidian-title-case-note-title",
+	"id": "title-case-note-title",
 	"name": "Title Case Note Title",
-	"version": "1.0.02",
+	"version": "1.0.03",
 	"minAppVersion": "1.5.3",
 	"description": "This rewrites all note titles named while active in title case.",
 	"author": "ChaseTramel",
